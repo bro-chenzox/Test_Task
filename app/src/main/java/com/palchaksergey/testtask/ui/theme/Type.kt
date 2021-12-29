@@ -1,4 +1,4 @@
-package com.palchaksergey.myapplication.ui.theme
+package com.palchaksergey.testtask.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

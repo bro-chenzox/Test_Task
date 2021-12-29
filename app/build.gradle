@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.palchaksergey.myapplication"
+        applicationId "com.palchaksergey.testtask"
         minSdk 21
         targetSdk 31
         versionCode 1
