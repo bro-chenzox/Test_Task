@@ -1,4 +1,4 @@
-package com.palchaksergey.myapplication.ui.theme
+package com.palchaksergey.testtask.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

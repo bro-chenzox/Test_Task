@@ -1,4 +1,4 @@
-package com.palchaksergey.myapplication
+package com.palchaksergey.testtask
 
 import org.junit.Test
 

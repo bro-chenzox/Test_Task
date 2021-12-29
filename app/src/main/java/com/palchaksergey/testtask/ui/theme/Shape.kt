@@ -1,4 +1,4 @@
-package com.palchaksergey.myapplication.ui.theme
+package com.palchaksergey.testtask.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
