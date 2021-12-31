@@ -1,15 +1,17 @@
 package com.palchaksergey.testtask.components
 
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.window.PopupProperties
+import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun MenuAndAlertDialogScaffold(
@@ -17,6 +19,13 @@ fun MenuAndAlertDialogScaffold(
     isDialogOpened: MutableState<Boolean>,
     content: @Composable () -> Unit = {}
 ) {
+    val animatedMenuHeight by animateDpAsState(
+        targetValue = if (isMenuExpanded.value) 64.dp else 0.dp,
+        animationSpec = tween(
+            durationMillis = 500
+        )
+    )
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -33,11 +42,15 @@ fun MenuAndAlertDialogScaffold(
                         }
 
                         DropdownMenu(
-                            properties = PopupProperties(),
+                            offset = DpOffset(0.dp, 4.dp),
                             expanded = isMenuExpanded.value,
-                            onDismissRequest = { isMenuExpanded.value = false }
-                        ) {
-                            DropdownMenuItem(onClick = { isDialogOpened.value = true }) {
+                            onDismissRequest = { isMenuExpanded.value = false },
+                            modifier = Modifier
+                                .height(animatedMenuHeight)
+                            ) {
+                            DropdownMenuItem(
+                                onClick = { isDialogOpened.value = true }
+                            ) {
                                 Text("About")
                             }
                         }
